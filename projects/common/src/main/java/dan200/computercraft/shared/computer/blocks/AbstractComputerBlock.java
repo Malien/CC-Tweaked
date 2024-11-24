@@ -131,17 +131,11 @@ public abstract class AbstractComputerBlock<T extends AbstractComputerBlockEntit
         return super.useWithoutItem(state, level, pos, player, hit);
     }
 
-    /*
     @Override
-    protected final void neighborChanged(BlockState state, Level world, BlockPos pos, Block neighbourBlock, BlockPos neighbourPos, boolean isMoving) {
-        // TODO: Add back
-        var be = world.getBlockEntity(pos);
-        if (be instanceof AbstractComputerBlockEntity computer) computer.neighborChanged(neighbourPos);
-    }*/
-
-    @Override
-    protected void neighborChanged(BlockState blockState, Level level, BlockPos blockPos, Block block, @org.jetbrains.annotations.Nullable Orientation orientation, boolean bl) {
-        super.neighborChanged(blockState, level, blockPos, block, orientation, bl);
+    protected void neighborChanged(BlockState blockState, Level level, BlockPos blockPos, Block block, @Nullable Orientation orientation, boolean bl) {
+        if (level.getBlockEntity(blockPos) instanceof AbstractComputerBlockEntity computer) {
+            // TODO: computer.neighborChanged(neighbourPos);
+        }
     }
 
     @ForgeOverride

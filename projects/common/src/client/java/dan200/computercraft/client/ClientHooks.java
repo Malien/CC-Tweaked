@@ -63,6 +63,9 @@ public final class ClientHooks {
     public static void onWorldUnload() {
         MonitorRenderState.destroyAll();
         SpeakerManager.reset();
+    }
+
+    public static void onDisconnect() {
         ClientPocketComputers.reset();
     }
 

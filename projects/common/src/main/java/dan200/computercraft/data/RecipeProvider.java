@@ -425,6 +425,16 @@ final class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
             .unlockedBy("has_printer", has(ModRegistry.Items.PRINTER.get()))
             .build(x -> new PrintoutRecipe(x, pages, 1))
             .save(output);
+
+        shaped(RecipeCategory.REDSTONE, ModRegistry.Blocks.REDSTONE_RELAY.get())
+            .pattern("SRS")
+            .pattern("RCR")
+            .pattern("SRS")
+            .define('S', Items.STONE)
+            .define('R', ingredients.redstone())
+            .define('C', ModRegistry.Blocks.CABLE.get())
+            .unlockedBy("has_cable", has(ModRegistry.Blocks.CABLE.get()))
+            .save(output);
     }
 
     private static Criterion<InventoryChangeTrigger.TriggerInstance> has(ItemLike... items) {

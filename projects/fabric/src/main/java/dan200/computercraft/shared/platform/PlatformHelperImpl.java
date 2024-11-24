@@ -55,8 +55,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.item.crafting.CraftingInput;
-import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -193,15 +191,6 @@ public class PlatformHelperImpl implements PlatformHelper {
     @Override
     public ItemStack getCraftingRemainingItem(ItemStack stack) {
         return stack.getRecipeRemainder();
-    }
-
-    @Override
-    public List<ItemStack> getRecipeRemainingItems(ServerPlayer player, CraftingRecipe recipe, CraftingInput container) {
-        return recipe.getRemainingItems(container);
-    }
-
-    @Override
-    public void onItemCrafted(ServerPlayer player, CraftingInput container, ItemStack stack) {
     }
 
     @Override
